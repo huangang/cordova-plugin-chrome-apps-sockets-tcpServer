@@ -83,7 +83,7 @@ function registerAcceptEvents() {
         var error = function() {
             exports.onAcceptError.fire(info);
         };
-        callbackWithError(info.message, error);
+        callbackWithError(typeof info == 'string' ? info : info.message, error);
     };
 
     exec(win, fail, 'ChromeSocketsTcpServer', 'registerAcceptEvents', []);
